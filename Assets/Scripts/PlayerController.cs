@@ -4,45 +4,49 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public float speed;
+    public static bool isPlayerColoring;
+    public static bool moveRight;
+    public float speed;
     public float distanceToGo;
     public float coldTime;
+
     private float time;
+    private Vector3 nextPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        isPlayerColoring = false;
+        moveRight = true;
         time = coldTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        DeleteByDeltaTime();
-    }
-
-    void DeleteByDeltaTime()
-    {
-        if (coldTime > 0)
+        if (moveRight)
         {
-            coldTime -= Time.deltaTime;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            nextPos = transform.position + new Vector3(distanceToGo, 0, 0);
+            transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
         else
         {
-            //do something
-            //Vector3 newPos = transform.position + new Vector3(distanceToGo, 0, 0);
-            if(WallCheck.isRight)
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            nextPos = transform.position + new Vector3(-distanceToGo, 0, 0);
+            transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        }
+
+        if (Vector2.Distance(transform.position, nextPos) < 0.1f)
+        {
+            if (coldTime > 0)
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                transform.position = transform.position + new Vector3(distanceToGo, 0, 0);
+                coldTime -= Time.deltaTime;
             }
             else
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-                transform.position = transform.position + new Vector3(-distanceToGo, 0, 0);
+                coldTime = time;
             }
-            
-            coldTime = time;
         }
     }
 }

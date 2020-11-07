@@ -17,8 +17,8 @@ TagManager:
   - Room
   - WallCheck
   - Player
-  - 
-  - 
+  - Foreground
+  - Door
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2733237385
+    locked: 0
+  - name: Foreground
+    uniqueID: 3855887067
     locked: 0
   - name: Player
     uniqueID: 953629171

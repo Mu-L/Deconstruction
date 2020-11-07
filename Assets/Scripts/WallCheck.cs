@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class WallCheck : MonoBehaviour
 {
-    public static bool isRight;
+    public static bool isRoomCollided;
 
-    private static int i;
-    private bool isInNewRoom;
     // Start is called before the first frame update
     void Start()
     {
-        isRight = true;
-        i = 0;
-        isInNewRoom = false;
+        isRoomCollided = false;
     }
 
     // Update is called once per frame
@@ -24,31 +20,12 @@ public class WallCheck : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        //isRight = !isRight;
-        if (!isInNewRoom)
+        if(other.gameObject.CompareTag("Room"))
         {
-            isRight = !isRight;
-        }
-        else
-        {
-            isRight = true;
-            isInNewRoom = false;
-        }
-
-        Debug.Log("Player离开了房间");
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(i > 0)
-        {
-            if (other.gameObject.CompareTag("Room"))
+            if(!isRoomCollided)
             {
-                Debug.Log("Player进入了房间");
-
-                isInNewRoom = true;
+                PlayerController.moveRight = !PlayerController.moveRight;
             }
         }
-        i++;
     }
 }

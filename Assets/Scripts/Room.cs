@@ -8,9 +8,12 @@ public class Room : MonoBehaviour
     private float startPosY;
     private bool isBeingHeld;
 
+    private Transform playerTransform;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         isBeingHeld = false;
     }
 
@@ -47,5 +50,28 @@ public class Room : MonoBehaviour
     private void OnMouseUp()
     {
         isBeingHeld = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Room"))
+        {
+            WallCheck.isRoomCollided = true;
+            Debug.Log("两个Room发生碰撞");
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerTransform.parent = gameObject.transform;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Room"))
+        {
+            WallCheck.isRoomCollided = false;
+            Debug.Log("两个Room脱离碰撞");
+        }
     }
 }
