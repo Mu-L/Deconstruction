@@ -7,18 +7,19 @@ public class PlayerController : MonoBehaviour
     public static bool isPlayerColoring;
     public static bool moveRight;
     public float speed;
-    public float distanceToGo;
-    public float coldTime;
+    //public float distanceToGo;
+    //public float coldTime;
+    public Rigidbody2D rb2d;
 
     private float time;
-    private Vector3 nextPos;
+    //private Vector3 nextPos;
 
     // Start is called before the first frame update
     void Start()
     {
         isPlayerColoring = false;
         moveRight = true;
-        time = coldTime;
+        //time = coldTime;
     }
 
     // Update is called once per frame
@@ -27,26 +28,28 @@ public class PlayerController : MonoBehaviour
         if (moveRight)
         {
             transform.localRotation = Quaternion.Euler(0, 0, 0);
-            nextPos = transform.position + new Vector3(distanceToGo, 0, 0);
-            transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+            rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+            //nextPos = transform.position + new Vector3(distanceToGo, 0, 0);
+            //transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
         else
         {
             transform.localRotation = Quaternion.Euler(0, 180, 0);
-            nextPos = transform.position + new Vector3(-distanceToGo, 0, 0);
-            transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+            rb2d.velocity = new Vector2(-speed, rb2d.velocity.y);
+            //nextPos = transform.position + new Vector3(-distanceToGo, 0, 0);
+            //transform.position = Vector2.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
 
-        if (Vector2.Distance(transform.position, nextPos) < 0.1f)
-        {
-            if (coldTime > 0)
-            {
-                coldTime -= Time.deltaTime;
-            }
-            else
-            {
-                coldTime = time;
-            }
-        }
+        //if (Vector2.Distance(transform.position, nextPos) < 0.1f)
+        //{
+        //    if (coldTime > 0)
+        //    {
+        //        coldTime -= Time.deltaTime;
+        //    }
+        //    else
+        //    {
+        //        coldTime = time;
+        //    }
+        //}
     }
 }
