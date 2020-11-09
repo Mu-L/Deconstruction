@@ -23,7 +23,7 @@ public class ColoringDoor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.PolygonCollider2D")
+        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.BoxCollider2D")
         {
             if(i == 0) //保证只对Player染色一次
             {

@@ -22,5 +22,10 @@ public class Block : MonoBehaviour
         {
             PlayerController.moveRight = !PlayerController.moveRight;
         }
+
+        if (other.CompareTag("EnemyWallCheck"))
+        {
+            EnemyController.moveRight = !EnemyController.moveRight;
+        }
     }
 }

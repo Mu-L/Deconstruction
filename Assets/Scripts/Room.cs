@@ -9,11 +9,13 @@ public class Room : MonoBehaviour
     private bool isBeingHeld;
 
     private Transform playerTransform;
+    private Transform enemyTransform;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        enemyTransform = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
         isBeingHeld = false;
     }
 
@@ -57,12 +59,18 @@ public class Room : MonoBehaviour
         if (other.gameObject.CompareTag("Room"))
         {
             WallCheck.isRoomCollided = true;
+            EnemyWallCheck.isRoomCollided = true;
             Debug.Log("两个Room发生碰撞");
         }
 
         if (other.gameObject.CompareTag("Player"))
         {
             playerTransform.parent = gameObject.transform;
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemyTransform.parent = gameObject.transform;
         }
     }
 
@@ -71,6 +79,7 @@ public class Room : MonoBehaviour
         if (other.gameObject.CompareTag("Room"))
         {
             WallCheck.isRoomCollided = false;
+            EnemyWallCheck.isRoomCollided = false;
             Debug.Log("两个Room脱离碰撞");
         }
     }

@@ -23,7 +23,7 @@ public class BlockTrap2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.PolygonCollider2D")
+        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CircleCollider2D")
         {
             //启动三个Block
             block1.SetActive(false);

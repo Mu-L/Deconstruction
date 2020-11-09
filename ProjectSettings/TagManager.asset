@@ -7,6 +7,8 @@ TagManager:
   - Room
   - WallCheck
   - TriggerPlatform
+  - Enemy
+  - EnemyWallCheck
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Block
   - TriggerBox
   - TriggerPlatform
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3855887067
+    locked: 0
+  - name: Enemy
+    uniqueID: 2676796117
     locked: 0
   - name: Player
     uniqueID: 953629171

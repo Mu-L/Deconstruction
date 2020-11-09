@@ -20,7 +20,7 @@ public class TargetDoor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.PolygonCollider2D")
+        if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CircleCollider2D")
         {
             if(PlayerController.isPlayerColoring)
             {

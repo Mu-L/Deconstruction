@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallCheck : MonoBehaviour
 {
-    public static bool isRoomCollided;
+    public static bool isRoomCollided; //检测两个房间之间是否发生碰撞
 
     // Start is called before the first frame update
     void Start()
