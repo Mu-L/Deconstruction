@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyWallCheck : MonoBehaviour
 {
+    public GameObject retryGamePanel;
     public static bool isRoomCollided; //检测两个房间之间是否发生碰撞
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class EnemyWallCheck : MonoBehaviour
         if (other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.CircleCollider2D")
         {
             Destroy(other.gameObject);
+            retryGamePanel.SetActive(true);
         }
     }
 
