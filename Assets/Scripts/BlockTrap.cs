@@ -12,7 +12,7 @@ public class BlockTrap : MonoBehaviour
     public GameObject block6; //竖着
     public GameObject block7; //竖着
     public GameObject block8; //横着
-    public GameObject block9; //横着
+    //public GameObject block9; //横着
 
 
 
@@ -90,8 +90,8 @@ public class BlockTrap : MonoBehaviour
         block7.GetComponent<Collider2D>().enabled = true;
         block8.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.2f);
         block8.GetComponent<Collider2D>().enabled = false;
-        block9.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.2f);
-        block9.GetComponent<Collider2D>().enabled = false;
+        //block9.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.2f);
+        //block9.GetComponent<Collider2D>().enabled = false;
         //block1.SetActive(true);
         //block2.SetActive(true);
         //block3.SetActive(true);
@@ -122,8 +122,8 @@ public class BlockTrap : MonoBehaviour
         block7.GetComponent<Collider2D>().enabled = false;
         block8.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
         block8.GetComponent<Collider2D>().enabled = true;
-        block9.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
-        block9.GetComponent<Collider2D>().enabled = true;
+        //block9.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+        //block9.GetComponent<Collider2D>().enabled = true;
 
         //block1.SetActive(false);
         //block2.SetActive(false);

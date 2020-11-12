@@ -22,6 +22,7 @@ public class WallCheck : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Room"))
         {
+            //如果两个房间没有发生碰撞
             if(!isRoomCollided)
             {
                 PlayerController.moveRight = !PlayerController.moveRight;

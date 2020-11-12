@@ -28,7 +28,7 @@ TagManager:
   - TriggerPlatform
   - Enemy
   - FindPlayerBox
-  - 
+  - VirtualTrigger
   - 
   - 
   - 
